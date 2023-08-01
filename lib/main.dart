@@ -1,9 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sizer/sizer.dart';
 
-void main() {
+void main() async {
+  // Reverted back in Git and decided to use Hive instead of the so called "successor" Isar
+  // Isar seems not mature right now (documentation on the website and GitHub does not match)
+  // Documentation is too limited and tutorials that are a few months old partly already have outdated syntax
+
+  // Because of the limited time of this project, not using Providers for now (recommended for production apps)
+
+  await Hive.initFlutter();
+  await Hive.openBox("todoBox");
+
   runApp(const MainApp());
 }
 
