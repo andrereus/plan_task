@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:plan_task/todo_list.dart';
+import 'package:plan_task/todo_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
@@ -15,7 +18,12 @@ void main() async {
   await Hive.initFlutter();
   await Hive.openBox("todoBox");
 
-  runApp(const MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => TodoList(),
+      child: MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -31,11 +39,7 @@ class MainApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-          home: Scaffold(
-            body: Center(
-              child: Text('Hello World!'),
-            ),
-          ),
+          home: TodoScreen(),
         );
       },
     );
