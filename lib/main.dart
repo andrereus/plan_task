@@ -7,13 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
-  // Not using sqflite because it only works on mobile and this app is required to work with local storage on the web
-
-  // Originally started implementing Isar, the so called "successor" to Hive
-  // Reverted back in Git and decided to use Hive instead
-  // Isar seems not mature right now (documentation on the website and GitHub does not match)
-  // Documentation is too limited and tutorials that are a few months old partly already have outdated syntax
-
   runApp(
     ChangeNotifierProvider(
       create: (context) => TaskList(),
