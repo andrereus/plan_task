@@ -17,7 +17,9 @@ class _TaskScreenState extends State<TaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Tasks')),
+      appBar: AppBar(
+        title: Text('Tasks'),
+      ),
       body: Consumer<TaskList>(
         builder: (context, taskList, child) {
           return ListView.builder(

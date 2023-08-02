@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
-  // (Not using sqflite because it only works on mobile and this app is required to work with local storage on the web)
+  // Not using sqflite because it only works on mobile and this app is required to work with local storage on the web
 
   // Originally started implementing Isar, the so called "successor" to Hive
   // Reverted back in Git and decided to use Hive instead
