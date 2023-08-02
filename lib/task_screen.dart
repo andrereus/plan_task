@@ -19,20 +19,30 @@ class _TaskScreenState extends State<TaskScreen> {
     return Scaffold(
       appBar: AppBar(title: Text('Tasks')),
       body: Consumer<TaskList>(
-        builder: (context, taskList, child) => ListView.builder(
-          itemCount: taskList.tasks.length,
-          itemBuilder: (context, index) => ListTile(
-            title: Text(taskList.tasks[index]['title']),
-            trailing: Checkbox(
-              value: taskList.tasks[index]['done'],
-              onChanged: (value) => taskList.toggleDone(index),
-            ),
-            onTap: () => taskList.deleteTask(index),
-          ),
-        ),
+        builder: (context, taskList, child) {
+          return ListView.builder(
+            itemCount: taskList.tasks.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(taskList.tasks[index]['title']),
+                trailing: Checkbox(
+                  value: taskList.tasks[index]['done'],
+                  onChanged: (value) {
+                    taskList.toggleDone(index);
+                  },
+                ),
+                onTap: () {
+                  taskList.deleteTask(index);
+                },
+              );
+            },
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _showAddTaskDialog(context),
+        onPressed: () {
+          _showAddTaskDialog(context);
+        },
         child: Icon(Icons.add),
       ),
     );
@@ -41,20 +51,22 @@ class _TaskScreenState extends State<TaskScreen> {
   void _showAddTaskDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        content: TextField(controller: _controller),
-        actions: [
-          ElevatedButton(
-            onPressed: () {
-              Provider.of<TaskList>(context, listen: false)
-                  .addTask(_controller.text);
-              _controller.clear();
-              Navigator.pop(context);
-            },
-            child: Text('Add'),
-          ),
-        ],
-      ),
+      builder: (context) {
+        return AlertDialog(
+          content: TextField(controller: _controller),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<TaskList>(context, listen: false)
+                    .addTask(_controller.text);
+                _controller.clear();
+                Navigator.pop(context);
+              },
+              child: Text('Add'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
