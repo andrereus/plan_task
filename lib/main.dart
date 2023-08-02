@@ -12,9 +12,6 @@ void main() async {
   // Isar seems not mature right now (documentation on the website and GitHub does not match)
   // Documentation is too limited and tutorials that are a few months old partly already have outdated syntax
 
-  // Because of the limited time of this project, not using State Management/Providers for now
-  // (recommended for production apps)
-
   await Hive.initFlutter();
   await Hive.openBox("todoBox");
 
