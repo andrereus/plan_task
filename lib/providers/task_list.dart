@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plan_task/hive_service.dart';
+import 'package:plan_task/services/hive_service.dart';
 
 class TaskList extends ChangeNotifier {
   List _tasks = [];

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:plan_task/task_list.dart';
+import 'package:plan_task/providers/task_list.dart';
 import 'package:provider/provider.dart';
 
 class TaskScreen extends StatefulWidget {

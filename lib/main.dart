@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:plan_task/task_list.dart';
-import 'package:plan_task/task_screen.dart';
+import 'package:plan_task/providers/task_list.dart';
+import 'package:plan_task/screens/task_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
