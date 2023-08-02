@@ -6,7 +6,7 @@ class HiveService {
   // Private constructor
   HiveService._privateConstructor();
 
-  // Singleton instance, lazily initialized
+  // Singleton instance
   static final HiveService _instance = HiveService._privateConstructor();
 
   // Factory constructor
@@ -14,7 +14,6 @@ class HiveService {
     return _instance;
   }
 
-  // Asynchronous initialization function
   Future<void> init() async {
     await Hive.initFlutter();
     _box = await Hive.openBox("taskBox");

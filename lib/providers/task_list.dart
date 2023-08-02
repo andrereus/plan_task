@@ -3,6 +3,8 @@ import 'package:plan_task/services/hive_service.dart';
 
 class TaskList extends ChangeNotifier {
   final HiveService hiveService = HiveService();
+
+  // Consider using a Model and TypeAdapter for a production apps
   List _tasks = [];
 
   TaskList() {
