@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:plan_task/hive_service.dart';
 
-class TodoList extends ChangeNotifier {
+class TaskList extends ChangeNotifier {
   List _tasks = [];
 
-  TodoList() {
+  TaskList() {
     _loadTasks();
   }
 

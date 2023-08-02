@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:plan_task/todo_list.dart';
-import 'package:plan_task/todo_screen.dart';
+import 'package:plan_task/task_list.dart';
+import 'package:plan_task/task_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -16,11 +16,11 @@ void main() async {
   // Documentation is too limited and tutorials that are a few months old partly already have outdated syntax
 
   await Hive.initFlutter();
-  await Hive.openBox("todoBox");
+  await Hive.openBox("taskBox");
 
   runApp(
     ChangeNotifierProvider(
-      create: (context) => TodoList(),
+      create: (context) => TaskList(),
       child: MainApp(),
     ),
   );
@@ -39,7 +39,7 @@ class MainApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-          home: TodoScreen(),
+          home: TaskScreen(),
         );
       },
     );
