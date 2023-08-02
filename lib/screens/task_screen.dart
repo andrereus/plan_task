@@ -15,6 +15,12 @@ class _TaskScreenState extends State<TaskScreen> {
   final TextEditingController _controller = TextEditingController();
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -59,10 +65,12 @@ class _TaskScreenState extends State<TaskScreen> {
           actions: [
             ElevatedButton(
               onPressed: () {
-                Provider.of<TaskList>(context, listen: false)
-                    .addTask(_controller.text);
-                _controller.clear();
-                Navigator.pop(context);
+                if (_controller.text.isNotEmpty) {
+                  Provider.of<TaskList>(context, listen: false)
+                      .addTask(_controller.text);
+                  _controller.clear();
+                  Navigator.pop(context);
+                }
               },
               child: Text('Add'),
             ),
