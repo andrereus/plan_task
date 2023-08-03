@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:plan_task/services/hive_service.dart';
 
 // State Management / Provider
-// Provides state and functions to UI in a single place
-// Interacts with HiveService for persistance and notifies listeners on changes
+// Provides state and functions to UI from a single place
+// Interacts with HiveService for persistence and notifies listeners on changes
 
 class TaskList extends ChangeNotifier {
   final HiveService hiveService = HiveService();
