@@ -26,11 +26,12 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Task"),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       ),
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(10),
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
@@ -38,34 +39,37 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Theme.of(context).colorScheme.primary,
-                    width: 2,
+                    width: 1,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Theme.of(context).colorScheme.primary,
-                    width: 2,
+                    width: 1,
                   ),
                 ),
               ),
             ),
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(
-                horizontal: 40,
-                vertical: 20,
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  vertical: 20,
+                ),
               ),
+              onPressed: () {
+                if (_controller.text.isNotEmpty) {
+                  Provider.of<TaskListProvider>(context, listen: false)
+                      .addTask(_controller.text);
+                  _controller.clear();
+                  Navigator.pop(context);
+                }
+              },
+              child: Text('Add'),
             ),
-            onPressed: () {
-              if (_controller.text.isNotEmpty) {
-                Provider.of<TaskListProvider>(context, listen: false)
-                    .addTask(_controller.text);
-                _controller.clear();
-                Navigator.pop(context);
-              }
-            },
-            child: Text('Add'),
           ),
         ],
       ),

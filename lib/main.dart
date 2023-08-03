@@ -47,6 +47,7 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: "PlanTask",
           theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
             useMaterial3: true,
           ),
           home: TaskListScreen(),

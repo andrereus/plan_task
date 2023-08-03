@@ -17,6 +17,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings'),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       ),
       body: Consumer<SettingsProvider>(
         builder: (context, settings, child) {

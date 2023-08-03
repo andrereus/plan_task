@@ -18,6 +18,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tasks'),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
@@ -43,7 +44,29 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 ),
                 trailing: IconButton(
                   onPressed: () {
-                    taskList.deleteTask(tasks[index]);
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text('Confirm Deletion'),
+                        content: Text('Delete "${tasks[index]['title']}"?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              taskList
+                                  .deleteTask(tasks[index]); // Delete the task
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                            child: Text('Delete'),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                            child: Text('Cancel'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                   icon: Icon(Icons.delete_outline),
                 ),
