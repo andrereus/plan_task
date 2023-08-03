@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           routes: {
             '/taskScreen': (context) {
-              return const TaskScreen();
+              return const TasksScreen();
             },
             '/addTaskScreen': (context) {
               return const AddTaskScreen();
@@ -37,7 +37,7 @@ class MainApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-          home: TaskScreen(),
+          home: TasksScreen(),
         );
       },
     );

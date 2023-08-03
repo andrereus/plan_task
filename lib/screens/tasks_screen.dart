@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:plan_task/providers/task_list.dart';
 import 'package:provider/provider.dart';
 
-class TaskScreen extends StatefulWidget {
-  const TaskScreen({super.key});
+class TasksScreen extends StatefulWidget {
+  const TasksScreen({super.key});
 
   @override
-  State<TaskScreen> createState() => _TaskScreenState();
+  State<TasksScreen> createState() => _TasksScreenState();
 }
 
-class _TaskScreenState extends State<TaskScreen> {
+class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
