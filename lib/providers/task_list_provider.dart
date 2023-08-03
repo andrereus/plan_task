@@ -35,6 +35,12 @@ class TaskListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearDoneTasks() {
+    _tasks.removeWhere((task) => task['done']);
+    hiveService.saveTasks(_tasks);
+    notifyListeners();
+  }
+
   void _loadTasks() {
     _tasks = hiveService.loadTasks() ?? [];
     notifyListeners();

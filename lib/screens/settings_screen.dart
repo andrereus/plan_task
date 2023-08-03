@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/settings_provider.dart';
+import 'package:plan_task/providers/task_list_provider.dart';
 import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -19,16 +20,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Text('Settings'),
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       ),
-      body: Consumer<SettingsProvider>(
-        builder: (context, settings, child) {
-          return SwitchListTile(
-            title: Text('Show Done Tasks'),
-            value: settings.showDoneTasks,
-            onChanged: (value) {
-              settings.toggleShowDoneTasks();
+      body: Column(
+        children: [
+          Consumer<SettingsProvider>(
+            builder: (context, settings, child) {
+              return SwitchListTile(
+                title: Text('Show Done Tasks'),
+                value: settings.showDoneTasks,
+                onChanged: (value) {
+                  settings.toggleShowDoneTasks();
+                },
+              );
             },
-          );
-        },
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.all(10),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  vertical: 20,
+                ),
+              ),
+              onPressed: () {
+                Provider.of<TaskListProvider>(context, listen: false)
+                    .clearDoneTasks();
+                Navigator.pop(context);
+              },
+              child: Text('Clear Done Tasks'),
+            ),
+          ),
+        ],
       ),
     );
   }

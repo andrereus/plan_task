@@ -61,7 +61,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 ),
               ),
               onPressed: () {
-                if (_controller.text.isNotEmpty) {
+                if (_controller.text.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Title is empty!'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                } else {
                   Provider.of<TaskListProvider>(context, listen: false)
                       .addTask(_controller.text);
                   _controller.clear();
