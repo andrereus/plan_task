@@ -38,12 +38,12 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 leading: Checkbox(
                   value: tasks[index]['done'],
                   onChanged: (value) {
-                    taskList.toggleDone(index);
+                    taskList.toggleDone(tasks[index]);
                   },
                 ),
                 trailing: IconButton(
                   onPressed: () {
-                    taskList.deleteTask(index);
+                    taskList.deleteTask(tasks[index]);
                   },
                   icon: Icon(Icons.delete_outline),
                 ),

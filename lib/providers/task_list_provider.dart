@@ -23,14 +23,14 @@ class TaskListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleDone(int index) {
-    _tasks[index]['done'] = !_tasks[index]['done'];
+  void toggleDone(Map task) {
+    task['done'] = !task['done'];
     hiveService.saveTasks(_tasks);
     notifyListeners();
   }
 
-  void deleteTask(int index) {
-    _tasks.removeAt(index);
+  void deleteTask(Map task) {
+    _tasks.remove(task);
     hiveService.saveTasks(_tasks);
     notifyListeners();
   }
