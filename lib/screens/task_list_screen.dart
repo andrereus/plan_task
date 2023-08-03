@@ -52,17 +52,16 @@ class _TaskListScreenState extends State<TaskListScreen> {
                         actions: [
                           TextButton(
                             onPressed: () {
-                              taskList
-                                  .deleteTask(tasks[index]); // Delete the task
-                              Navigator.of(context).pop(); // Close the dialog
+                              Navigator.of(context).pop();
                             },
-                            child: Text('Delete'),
+                            child: Text('Cancel'),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.of(context).pop(); // Close the dialog
+                              taskList.deleteTask(tasks[index]);
+                              Navigator.of(context).pop();
                             },
-                            child: Text('Cancel'),
+                            child: Text('Delete'),
                           ),
                         ],
                       ),
