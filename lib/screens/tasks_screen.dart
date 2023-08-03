@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:plan_task/providers/settings_provider.dart';
 import 'package:plan_task/providers/task_list.dart';
 import 'package:provider/provider.dart';
 
@@ -17,16 +18,25 @@ class _TasksScreenState extends State<TasksScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tasks'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () => Navigator.pushNamed(context, '/settingsScreen'),
+          ),
+        ],
       ),
-      body: Consumer<TaskList>(
-        builder: (context, taskList, child) {
+      body: Consumer2<TaskList, SettingsProvider>(
+        builder: (context, taskList, settings, child) {
+          var tasks = settings.showDoneTasks
+              ? taskList.tasks
+              : taskList.tasks.where((task) => !task['done']).toList();
           return ListView.builder(
-            itemCount: taskList.tasks.length,
+            itemCount: tasks.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text(taskList.tasks[index]['title']),
+                title: Text(tasks[index]['title']),
                 leading: Checkbox(
-                  value: taskList.tasks[index]['done'],
+                  value: tasks[index]['done'],
                   onChanged: (value) {
                     taskList.toggleDone(index);
                   },

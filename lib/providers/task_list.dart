@@ -12,11 +12,6 @@ class TaskList extends ChangeNotifier {
   List _tasks = [];
 
   TaskList() {
-    _init();
-  }
-
-  Future<void> _init() async {
-    await hiveService.init();
     _loadTasks();
   }
 

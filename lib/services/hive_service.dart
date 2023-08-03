@@ -33,4 +33,12 @@ class HiveService {
   List? loadTasks() {
     return _box.get('tasks') as List?;
   }
+
+  void saveShowDoneTasksSetting(bool value) {
+    _box.put('showDoneTasks', value);
+  }
+
+  bool? loadShowDoneTasksSetting() {
+    return _box.get('showDoneTasks') as bool?;
+  }
 }
