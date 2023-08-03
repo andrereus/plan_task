@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/task_list.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -21,6 +20,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     super.dispose();
   }
 
+  // Intentionally not using Sizer to avoid making sizes depend on screen size
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(12.sp),
+            margin: EdgeInsets.all(20),
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
@@ -38,13 +38,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Theme.of(context).colorScheme.primary,
-                    width: 1.sp,
+                    width: 2,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Theme.of(context).colorScheme.primary,
-                    width: 1.sp,
+                    width: 2,
                   ),
                 ),
               ),
@@ -53,8 +53,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(
-                horizontal: 24.sp,
-                vertical: 12.sp,
+                horizontal: 40,
+                vertical: 20,
               ),
             ),
             onPressed: () {
