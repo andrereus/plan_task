@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/settings_provider.dart';
-import 'package:plan_task/providers/task_list.dart';
+import 'package:plan_task/providers/task_list_provider.dart';
 import 'package:plan_task/screens/add_task_screen.dart';
 import 'package:plan_task/screens/settings_screen.dart';
-import 'package:plan_task/screens/tasks_screen.dart';
+import 'package:plan_task/screens/task_list_screen.dart';
 import 'package:plan_task/services/hive_service.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -17,7 +17,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => TaskList()),
+        ChangeNotifierProvider(create: (context) => TaskListProvider()),
         ChangeNotifierProvider(create: (context) => SettingsProvider()),
       ],
       child: MainApp(),
@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           routes: {
             '/taskScreen': (context) {
-              return const TasksScreen();
+              return const TaskListScreen();
             },
             '/addTaskScreen': (context) {
               return const AddTaskScreen();
@@ -49,7 +49,7 @@ class MainApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-          home: TasksScreen(),
+          home: TaskListScreen(),
         );
       },
     );

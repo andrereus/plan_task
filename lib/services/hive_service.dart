@@ -23,7 +23,7 @@ class HiveService {
 
   Future<void> init() async {
     await Hive.initFlutter();
-    _box = await Hive.openBox("taskBox");
+    _box = await Hive.openBox("planTaskBox");
   }
 
   void saveTasks(List tasks) {

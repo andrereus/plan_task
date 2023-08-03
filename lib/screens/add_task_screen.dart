@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:plan_task/providers/task_list.dart';
+import 'package:plan_task/providers/task_list_provider.dart';
 import 'package:provider/provider.dart';
 
 class AddTaskScreen extends StatefulWidget {
@@ -59,7 +59,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             ),
             onPressed: () {
               if (_controller.text.isNotEmpty) {
-                Provider.of<TaskList>(context, listen: false)
+                Provider.of<TaskListProvider>(context, listen: false)
                     .addTask(_controller.text);
                 _controller.clear();
                 Navigator.pop(context);

@@ -2,17 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/settings_provider.dart';
-import 'package:plan_task/providers/task_list.dart';
+import 'package:plan_task/providers/task_list_provider.dart';
 import 'package:provider/provider.dart';
 
-class TasksScreen extends StatefulWidget {
-  const TasksScreen({super.key});
+class TaskListScreen extends StatefulWidget {
+  const TaskListScreen({super.key});
 
   @override
-  State<TasksScreen> createState() => _TasksScreenState();
+  State<TaskListScreen> createState() => _TaskListScreenState();
 }
 
-class _TasksScreenState extends State<TasksScreen> {
+class _TaskListScreenState extends State<TaskListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _TasksScreenState extends State<TasksScreen> {
           ),
         ],
       ),
-      body: Consumer2<TaskList, SettingsProvider>(
+      body: Consumer2<TaskListProvider, SettingsProvider>(
         builder: (context, taskList, settings, child) {
           var tasks = settings.showDoneTasks
               ? taskList.tasks

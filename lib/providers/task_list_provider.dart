@@ -5,13 +5,13 @@ import 'package:plan_task/services/hive_service.dart';
 // Provides state and functions to UI from a single place
 // Interacts with HiveService for persistence and notifies listeners on changes
 
-class TaskList extends ChangeNotifier {
+class TaskListProvider extends ChangeNotifier {
   final HiveService hiveService = HiveService();
 
   // Consider using a Model and TypeAdapter for a production apps
   List _tasks = [];
 
-  TaskList() {
+  TaskListProvider() {
     _loadTasks();
   }
 
