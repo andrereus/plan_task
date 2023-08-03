@@ -43,6 +43,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               onPressed: () {
+                // This action is not an actual setting and therefore
+                // doesn't need to be in the SettingsProvider
                 Provider.of<TaskListProvider>(context, listen: false)
                     .clearDoneTasks();
                 Navigator.pop(context);
