@@ -12,14 +12,6 @@ class TaskScreen extends StatefulWidget {
 }
 
 class _TaskScreenState extends State<TaskScreen> {
-  final TextEditingController _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +25,18 @@ class _TaskScreenState extends State<TaskScreen> {
             itemBuilder: (context, index) {
               return ListTile(
                 title: Text(taskList.tasks[index]['title']),
-                trailing: Checkbox(
+                leading: Checkbox(
                   value: taskList.tasks[index]['done'],
                   onChanged: (value) {
                     taskList.toggleDone(index);
                   },
                 ),
-                onTap: () {
-                  taskList.deleteTask(index);
-                },
+                trailing: IconButton(
+                  onPressed: () {
+                    taskList.deleteTask(index);
+                  },
+                  icon: Icon(Icons.delete_outline),
+                ),
               );
             },
           );
@@ -49,34 +44,10 @@ class _TaskScreenState extends State<TaskScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _showAddTaskDialog(context);
+          Navigator.pushNamed(context, '/addTaskScreen');
         },
         child: Icon(Icons.add),
       ),
-    );
-  }
-
-  void _showAddTaskDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          content: TextField(controller: _controller),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                if (_controller.text.isNotEmpty) {
-                  Provider.of<TaskList>(context, listen: false)
-                      .addTask(_controller.text);
-                  _controller.clear();
-                  Navigator.pop(context);
-                }
-              },
-              child: Text('Add'),
-            ),
-          ],
-        );
-      },
     );
   }
 }

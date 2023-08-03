@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/task_list.dart';
-import 'package:plan_task/screens/task_screen.dart';
+import 'package:plan_task/screens/add_task_screen.dart';
+import 'package:plan_task/screens/tasks_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -23,6 +24,14 @@ class MainApp extends StatelessWidget {
     return Sizer(
       builder: (context, orientation, deviceType) {
         return MaterialApp(
+          routes: {
+            '/taskScreen': (context) {
+              return const TaskScreen();
+            },
+            '/addTaskScreen': (context) {
+              return const AddTaskScreen();
+            }
+          },
           debugShowCheckedModeBanner: false,
           title: "PlanTask",
           theme: ThemeData(
