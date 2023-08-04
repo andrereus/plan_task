@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 // Project info: Again used Git for version control
-// Minimized project size with "flutter clean" to remove build artifacts before zip and upload
+// Minimized project size with "flutter clean" to clean up build artifacts before zip and upload
 // (General info: When using "flutter clean" it's necessary to run "flutter pub get" afterwards)
 
 void main() async {
