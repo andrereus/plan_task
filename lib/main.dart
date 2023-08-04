@@ -38,15 +38,9 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           // Set up routes for navigation
           routes: {
-            '/taskScreen': (context) {
-              return const TaskListScreen();
-            },
-            '/addTaskScreen': (context) {
-              return const AddTaskScreen();
-            },
-            '/settingsScreen': (context) {
-              return const SettingsScreen();
-            },
+            '/taskScreen': (context) => TaskListScreen(),
+            '/addTaskScreen': (context) => AddTaskScreen(),
+            '/settingsScreen': (context) => SettingsScreen(),
           },
           debugShowCheckedModeBanner: false,
           title: "PlanTask",

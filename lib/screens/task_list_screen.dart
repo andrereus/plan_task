@@ -55,25 +55,27 @@ class _TaskListScreenState extends State<TaskListScreen> {
                       // Making sure Deletion is confirmed
                       showDialog(
                         context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text('Confirm Deletion'),
-                          content: Text('Delete "${tasks[index]['title']}"?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                taskList.deleteTask(tasks[index]);
-                                Navigator.of(context).pop();
-                              },
-                              child: Text('Delete'),
-                            ),
-                          ],
-                        ),
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text('Confirm Deletion'),
+                            content: Text('Delete "${tasks[index]['title']}"?'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Cancel'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  taskList.deleteTask(tasks[index]);
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Delete'),
+                              ),
+                            ],
+                          );
+                        },
                       );
                     },
                     icon: Icon(Icons.delete_outline),
