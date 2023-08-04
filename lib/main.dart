@@ -11,10 +11,12 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
+  // Initialize Hive database
   final hiveService = HiveService();
   await hiveService.init();
 
   runApp(
+    // Integrate providers / state management
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => TaskListProvider()),
@@ -30,9 +32,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Integrate Sizer in case sizes in percent based on screen size are needed
     return Sizer(
       builder: (context, orientation, deviceType) {
         return MaterialApp(
+          // Set up routes for navigation
           routes: {
             '/taskScreen': (context) {
               return const TaskListScreen();
@@ -46,6 +50,8 @@ class MainApp extends StatelessWidget {
           },
           debugShowCheckedModeBanner: false,
           title: "PlanTask",
+          // Generate ColorScheme based on color blue instead of
+          // the default color of Material Design 3
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true,

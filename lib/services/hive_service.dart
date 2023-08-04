@@ -14,6 +14,8 @@ class HiveService {
   HiveService._privateConstructor();
 
   // Singleton instance
+  // To make sure the HiveService only gets initialized once
+  // Not particularly necessary with the current implementation, but is more safe for further use
   static final HiveService _instance = HiveService._privateConstructor();
 
   // Factory constructor
@@ -21,6 +23,7 @@ class HiveService {
     return _instance;
   }
 
+  // Initialize Hive
   Future<void> init() async {
     await Hive.initFlutter();
     _box = await Hive.openBox("planTaskBox");

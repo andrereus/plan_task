@@ -10,6 +10,7 @@ class SettingsProvider extends ChangeNotifier {
     _loadShowDoneTasks();
   }
 
+  // Already not modifiable
   bool get showDoneTasks => _showDoneTasks;
 
   void toggleShowDoneTasks() {

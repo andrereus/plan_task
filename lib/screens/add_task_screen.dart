@@ -14,6 +14,7 @@ class AddTaskScreen extends StatefulWidget {
 class _AddTaskScreenState extends State<AddTaskScreen> {
   final TextEditingController _controller = TextEditingController();
 
+  // Avoiding memory leaks
   @override
   void dispose() {
     _controller.dispose();
@@ -61,6 +62,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 ),
               ),
               onPressed: () {
+                // Making sure TextField is not empty
                 if (_controller.text.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

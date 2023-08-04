@@ -22,17 +22,23 @@ class _TaskListScreenState extends State<TaskListScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
-            onPressed: () => Navigator.pushNamed(context, '/settingsScreen'),
+            onPressed: () {
+              Navigator.pushNamed(context, '/settingsScreen');
+            },
           ),
         ],
       ),
+      // Consumer2 for using two providers (maximum Consumer7, alternative are watchers)
       body: Consumer2<TaskListProvider, SettingsProvider>(
         builder: (context, taskList, settings, child) {
+          // Filter task list based on setting showDoneTasks
           var tasks = settings.showDoneTasks
               ? taskList.tasks
               : taskList.tasks.where((task) => !task['done']).toList();
           return Padding(
             padding: const EdgeInsets.only(top: 10),
+            // Using separated ListView to add Dividers between tasks
+            // See separatorBuilder below
             child: ListView.separated(
               itemCount: tasks.length,
               itemBuilder: (context, index) {
@@ -46,6 +52,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                   ),
                   trailing: IconButton(
                     onPressed: () {
+                      // Making sure Deletion is confirmed
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(

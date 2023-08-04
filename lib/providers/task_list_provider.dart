@@ -11,10 +11,14 @@ class TaskListProvider extends ChangeNotifier {
   // Consider using a Model and TypeAdapter for a production apps
   List _tasks = [];
 
+  // Load tasks on initialization
   TaskListProvider() {
     _loadTasks();
   }
 
+  // Make sure provided list is not modifiable, provided functions should be used
+  // Otherwise not the Map itself, but tasks inside of the Map could be modified
+  // without saving to the database and notifying listeners
   List get tasks => List.unmodifiable(_tasks);
 
   void addTask(String title) {
