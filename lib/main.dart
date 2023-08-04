@@ -8,6 +8,10 @@ import 'package:plan_task/services/hive_service.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+// Project info: Again used Git for version control
+// Minimized project with "flutter clean" to remove build artifacts before zip and upload
+// (General info: When using "flutter clean" it's necessary to run "flutter pub get" afterwards)
+
 void main() async {
   // Initialize Hive database
   final hiveService = HiveService();
