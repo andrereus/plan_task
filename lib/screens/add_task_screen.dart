@@ -13,6 +13,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   final TextEditingController _controller = TextEditingController();
 
   // Avoiding memory leaks
+  // (Hive box on the other hand is automatically closed,
+  // so it's not needed to explicitly close it)
   @override
   void dispose() {
     _controller.dispose();
