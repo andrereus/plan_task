@@ -31,46 +31,49 @@ class _TaskListScreenState extends State<TaskListScreen> {
           var tasks = settings.showDoneTasks
               ? taskList.tasks
               : taskList.tasks.where((task) => !task['done']).toList();
-          return ListView.builder(
-            itemCount: tasks.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(tasks[index]['title']),
-                leading: Checkbox(
-                  value: tasks[index]['done'],
-                  onChanged: (value) {
-                    taskList.toggleDone(tasks[index]);
-                  },
-                ),
-                trailing: IconButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text('Confirm Deletion'),
-                        content: Text('Delete "${tasks[index]['title']}"?'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('Cancel'),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              taskList.deleteTask(tasks[index]);
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('Delete'),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  icon: Icon(Icons.delete_outline),
-                ),
-              );
-            },
+          return Padding(
+            padding: const EdgeInsets.only(top: 12),
+            child: ListView.builder(
+              itemCount: tasks.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(tasks[index]['title']),
+                  leading: Checkbox(
+                    value: tasks[index]['done'],
+                    onChanged: (value) {
+                      taskList.toggleDone(tasks[index]);
+                    },
+                  ),
+                  trailing: IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text('Confirm Deletion'),
+                          content: Text('Delete "${tasks[index]['title']}"?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                taskList.deleteTask(tasks[index]);
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Delete'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.delete_outline),
+                  ),
+                );
+              },
+            ),
           );
         },
       ),

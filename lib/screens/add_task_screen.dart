@@ -31,7 +31,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.all(12),
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
@@ -53,7 +53,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           ),
           Container(
             width: double.infinity,
-            margin: EdgeInsets.symmetric(horizontal: 10),
+            margin: EdgeInsets.symmetric(horizontal: 12),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(

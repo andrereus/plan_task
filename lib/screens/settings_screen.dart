@@ -24,18 +24,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           Consumer<SettingsProvider>(
             builder: (context, settings, child) {
-              return SwitchListTile(
-                title: Text('Show Done Tasks'),
-                value: settings.showDoneTasks,
-                onChanged: (value) {
-                  settings.toggleShowDoneTasks();
-                },
+              return Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: SwitchListTile(
+                  title: Text('Show Done Tasks'),
+                  value: settings.showDoneTasks,
+                  onChanged: (value) {
+                    settings.toggleShowDoneTasks();
+                  },
+                ),
               );
             },
           ),
           Container(
             width: double.infinity,
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.all(12),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(
