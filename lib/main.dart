@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/settings_provider.dart';
 import 'package:plan_task/providers/task_list_provider.dart';
@@ -22,7 +20,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => TaskListProvider()),
         ChangeNotifierProvider(create: (context) => SettingsProvider()),
       ],
-      child: MainApp(),
+      child: const MainApp(),
     ),
   );
 }
@@ -39,9 +37,9 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           // Set up routes for navigation
           routes: {
-            '/taskScreen': (context) => TaskListScreen(),
-            '/addTaskScreen': (context) => AddTaskScreen(),
-            '/settingsScreen': (context) => SettingsScreen(),
+            '/taskScreen': (context) => const TaskListScreen(),
+            '/addTaskScreen': (context) => const AddTaskScreen(),
+            '/settingsScreen': (context) => const SettingsScreen(),
           },
           debugShowCheckedModeBanner: false,
           title: "PlanTask",
@@ -50,7 +48,7 @@ class MainApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true,
           ),
-          home: TaskListScreen(),
+          home: const TaskListScreen(),
         );
       },
     );

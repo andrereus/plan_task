@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/settings_provider.dart';
 import 'package:plan_task/providers/task_list_provider.dart';
@@ -17,7 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       ),
       body: Column(
@@ -27,7 +25,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               return Padding(
                 padding: const EdgeInsets.only(top: 12),
                 child: SwitchListTile(
-                  title: Text('Show Done Tasks'),
+                  title: const Text('Show Done Tasks'),
                   value: settings.showDoneTasks,
                   onChanged: (value) {
                     settings.toggleShowDoneTasks();
@@ -38,10 +36,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           Container(
             width: double.infinity,
-            margin: EdgeInsets.all(12),
+            margin: const EdgeInsets.all(12),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   vertical: 20,
                 ),
               ),
@@ -52,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     .clearDoneTasks();
                 Navigator.pop(context);
               },
-              child: Text('Clear Done Tasks'),
+              child: const Text('Clear Done Tasks'),
             ),
           ),
         ],

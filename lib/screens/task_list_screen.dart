@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/settings_provider.dart';
 import 'package:plan_task/providers/task_list_provider.dart';
@@ -17,13 +15,13 @@ class _TaskListScreenState extends State<TaskListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PlanTask'),
+        title: const Text('PlanTask'),
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: IconButton(
-              icon: Icon(Icons.settings),
+              icon: const Icon(Icons.settings),
               onPressed: () {
                 Navigator.pushNamed(context, '/settingsScreen');
               },
@@ -60,33 +58,33 @@ class _TaskListScreenState extends State<TaskListScreen> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text('Confirm Deletion'),
+                            title: const Text('Confirm Deletion'),
                             content: Text('Delete "${tasks[index]['title']}"?'),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('Cancel'),
+                                child: const Text('Cancel'),
                               ),
                               TextButton(
                                 onPressed: () {
                                   taskList.deleteTask(tasks[index]);
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('Delete'),
+                                child: const Text('Delete'),
                               ),
                             ],
                           );
                         },
                       );
                     },
-                    icon: Icon(Icons.delete_outline),
+                    icon: const Icon(Icons.delete_outline),
                   ),
                 );
               },
               separatorBuilder: (context, index) {
-                return Divider(
+                return const Divider(
                   thickness: 0.2,
                 );
               },
@@ -98,7 +96,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
         onPressed: () {
           Navigator.pushNamed(context, '/addTaskScreen');
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

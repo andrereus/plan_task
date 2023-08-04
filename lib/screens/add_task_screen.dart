@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:plan_task/providers/task_list_provider.dart';
 import 'package:provider/provider.dart';
@@ -25,13 +23,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Task"),
+        title: const Text("Add Task"),
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       ),
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(12),
+            margin: const EdgeInsets.all(12),
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
@@ -53,10 +51,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           ),
           Container(
             width: double.infinity,
-            margin: EdgeInsets.symmetric(horizontal: 12),
+            margin: const EdgeInsets.symmetric(horizontal: 12),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   vertical: 20,
                 ),
               ),
@@ -64,7 +62,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 // Making sure TextField is not empty
                 if (_controller.text.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Title is empty!'),
                       duration: Duration(seconds: 2),
                     ),
@@ -76,7 +74,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   Navigator.pop(context);
                 }
               },
-              child: Text('Add'),
+              child: const Text('Add'),
             ),
           ),
         ],
