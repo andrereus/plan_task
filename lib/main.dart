@@ -32,7 +32,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Integrate Sizer in case sizes in percent based on screen size are needed
+    // Integrate Sizer just in case sizes in percent, based on screen size, are needed
+    // Intentionally avoiding it until necessary, to make sizes not depend on screen size too much
     return Sizer(
       builder: (context, orientation, deviceType) {
         return MaterialApp(
@@ -44,8 +45,7 @@ class MainApp extends StatelessWidget {
           },
           debugShowCheckedModeBanner: false,
           title: "PlanTask",
-          // Generate ColorScheme based on color blue instead of
-          // the default color of Material Design 3
+          // Generate ColorScheme based on color blue instead of the default color in Material Design 3
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true,

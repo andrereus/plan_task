@@ -21,7 +21,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     super.dispose();
   }
 
-  // Intentionally not using Sizer to avoid making sizes depend on screen size
   @override
   Widget build(BuildContext context) {
     return Scaffold(
