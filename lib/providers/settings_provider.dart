@@ -15,12 +15,12 @@ class SettingsProvider extends ChangeNotifier {
 
   void toggleShowDoneTasks() {
     _showDoneTasks = !_showDoneTasks;
-    hiveService.saveShowDoneTasksSetting(_showDoneTasks);
+    hiveService.saveShowDoneTasks(_showDoneTasks);
     notifyListeners();
   }
 
   void _loadShowDoneTasks() {
-    _showDoneTasks = hiveService.loadShowDoneTasksSetting() ?? true;
+    _showDoneTasks = hiveService.loadShowDoneTasks() ?? true;
     notifyListeners();
   }
 }
