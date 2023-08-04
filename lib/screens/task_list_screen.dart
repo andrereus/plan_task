@@ -20,11 +20,14 @@ class _TaskListScreenState extends State<TaskListScreen> {
         title: Text('PlanTask'),
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Navigator.pushNamed(context, '/settingsScreen');
-            },
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                Navigator.pushNamed(context, '/settingsScreen');
+              },
+            ),
           ),
         ],
       ),
