@@ -32,8 +32,8 @@ class _TaskListScreenState extends State<TaskListScreen> {
               ? taskList.tasks
               : taskList.tasks.where((task) => !task['done']).toList();
           return Padding(
-            padding: const EdgeInsets.only(top: 12),
-            child: ListView.builder(
+            padding: const EdgeInsets.only(top: 10),
+            child: ListView.separated(
               itemCount: tasks.length,
               itemBuilder: (context, index) {
                 return ListTile(
@@ -71,6 +71,11 @@ class _TaskListScreenState extends State<TaskListScreen> {
                     },
                     icon: Icon(Icons.delete_outline),
                   ),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return Divider(
+                  thickness: 0.2,
                 );
               },
             ),
